@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6F6F6"
+    tools:context="com.fc.hft.zjghjiudian.MainActivity"
+    android:orientation="vertical">
+    <!--使用FrameLayout当做盛放Fragment对象的容器-->
+    <FrameLayout
+        android:id="@+id/framelayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    <!--中间为一条分割线-->
+    <View
+        android:background="#cccccc"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <!--最下边为RadioGroup-->
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <!--第一个RadioButton-->
+        <RadioButton
+            android:id="@+id/btn_home"
+            android:text="首页"
+            style="@style/RadioGroupButtonStyle"
+            android:drawableTop="@drawable/main_news"
+            />
+        <!--第二个RadioButton-->
+        <RadioButton
+            android:id="@+id/btn_order"
+            android:text="订单"
+            style="@style/RadioGroupButtonStyle"
+            android:drawableTop="@drawable/main_order"
+            />
+        <!--第三个RadioButton-->
+        <RadioButton
+            android:id="@+id/btn_my"
+            android:text="我的"
+            style="@style/RadioGroupButtonStyle"
+            android:drawableTop="@drawable/main_mine"
+            />
+
+    </RadioGroup>
+
+
+
+
+</LinearLayout>
