@@ -11,8 +11,6 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fc.hft.zjghjiudian.entiy.User;
@@ -31,26 +29,18 @@ import cn.bmob.v3.listener.SaveListener;
  */
 
 public class LoginActivity extends AppCompatActivity {
-    @BindView(R.id.et_username)
+
+
+    Intent intent;
+    Unbinder unbinder;
+    @BindView(R.id.iv_shop_card)
+    ImageView ivShopCard;
+    @BindView(R.id.edt_login_username)
     EditText etUsername;
-    @BindView(R.id.et_password)
+    @BindView(R.id.edt_login_password)
     EditText etPassword;
     @BindView(R.id.btn_login)
     Button btnLogin;
-    @BindView(R.id.tv_reg)
-    TextView tvReg;
-    Intent intent;
-    @BindView(R.id.tv_line1)
-    TextView tvLine1;
-    @BindView(R.id.tv_line2)
-    TextView tvLine2;
-    @BindView(R.id.iv_login_close)
-    ImageView ivLoginClose;
-    @BindView(R.id.tv_forgetpaswword)
-    TextView tvForgetpaswword;
-    @BindView(R.id.activity_login)
-    RelativeLayout activityLogin;
-    Unbinder unbinder;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -73,7 +63,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    @OnClick({R.id.btn_login, R.id.tv_reg})
+    @OnClick(R.id.btn_login)
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_login:
@@ -101,11 +91,6 @@ public class LoginActivity extends AppCompatActivity {
                 });
                 break;
 
-            case R.id.tv_reg:
-                intent = new Intent(LoginActivity.this, RegisterActivity.class);
-                startActivity(intent);
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-                break;
         }
     }
 
@@ -114,4 +99,5 @@ public class LoginActivity extends AppCompatActivity {
         super.onDestroy();
         unbinder.unbind();
     }
+
 }

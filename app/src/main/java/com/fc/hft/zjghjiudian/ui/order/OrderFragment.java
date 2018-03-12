@@ -22,7 +22,7 @@ import java.util.List;
 
 public class OrderFragment extends Fragment {
     private List<Fragment> list;
-    private String[] titles = {"全部订单", "未处理", "已处理"};
+    private String[] titles = {"未处理", "已完成", "已取消"};
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private MyAdapter adapter;
@@ -38,8 +38,8 @@ public class OrderFragment extends Fragment {
 
     private void initFragment() {
         list=new ArrayList<>();
-        list.add(new AllFragment());
         list.add(new WeiFragment());
+        list.add(new OkFragment());
         list.add(new YiFragment());
     }
 

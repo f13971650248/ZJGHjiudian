@@ -14,12 +14,22 @@ import com.fc.hft.zjghjiudian.R;
  * Created by Administrator on 2018/3/8/008.
  */
 
-public class AllFragment extends Fragment{
+public class OkFragment extends Fragment {
+
+
+
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view =inflater.inflate(R.layout.all_order_layout,container,false);
+        View view = inflater.inflate(R.layout.ok_item_layout, container, false);
+
         return view;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+
     }
 }

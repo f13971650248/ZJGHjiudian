@@ -1,24 +1,35 @@
 package com.fc.hft.zjghjiudian.ui.Home;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
+import android.support.annotation.Nullable;
+
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.BaseViewHolder;
 import com.fc.hft.zjghjiudian.R;
 import com.fc.hft.zjghjiudian.entiy.JiuDian;
 
 import java.util.List;
 
+
 /**
  * Created by Administrator on 2018/3/8/008.
  */
 
-public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
-    private List<JiuDian> jiuDianList;
+public class HomeAdapter extends BaseQuickAdapter<JiuDian, BaseViewHolder> {
+    public HomeAdapter(int layoutResId, @Nullable List<JiuDian> data) {
+        super(layoutResId, data);
+    }
+
+    @Override
+    protected void convert(BaseViewHolder helper, JiuDian item) {
+        helper.setImageResource(R.id.iv_house, item.getImageID());
+        helper.setText(R.id.tv_type, item.getType());
+        helper.setText(R.id.tv_price, item.getPrice());
+        helper.setText(R.id.tv_num,item.getRuzhuNum());
+        helper.setText(R.id.tv_number,item.getShengNum());
+
+    }
+/*    private List<JiuDian> jiuDianList;
 
     public HomeAdapter(List<JiuDian> list){
         jiuDianList =list;
@@ -57,5 +68,5 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
             tvPrice =itemView.findViewById(R.id.tv_price);
             jdImage =itemView.findViewById(R.id.iv_house);
         }
-    }
+    }*/
 }

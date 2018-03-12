@@ -7,6 +7,12 @@
     <color name="error">#ff4545</color>
     <!-- 浅灰色 -->
     <color name="light_grey">#E5E5E5</color>
+    <!-- app的背景颜色 -->
+    <color name="bgall">#F0EFF5</color>
+    <!-- 深灰色 -->
+    <color name="deep_grey">#666666</color>
+    <!-- 浅灰色的分割线 -->
+    <color name="shallow_gray">#E9E9E9</color>
 
     <!--常用颜色-->
     <color name="LightPink">#FFB6C1</color>
