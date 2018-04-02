@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/LyOutSet"
     android:background="@color/bgall" >
 
@@ -34,7 +35,7 @@
                     android:visibility="visible"
                     android:orientation="horizontal" >
 
-                    <ImageView
+                 <!--   <ImageView
                         android:id="@+id/iv_showlogo"
                         android:layout_width="76dp"
                         android:layout_height="76dp"
@@ -43,7 +44,15 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
                         android:background="@drawable/bg_border"
-                        android:scaleType="fitXY" />
+                        android:scaleType="fitXY" />-->
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/iv_showlogo"
+                        android:layout_width="76dp"
+                        android:layout_height="76dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/logn"
+                        app:civ_border_color="@color/DodgerBlue"
+                        app:civ_border_width="1dp"/>
 
                     <LinearLayout
                         style="@style/LyWHSecond"
@@ -56,7 +65,7 @@
                             android:id="@+id/tv_shopname"
                             style="@style/textview"
                             android:layout_marginTop="10dp"
-                            android:text="最牛的酒店"
+                            android:text="浙江工行酒店"
                             android:textColor="@color/Black"
                             android:textSize="16sp" />
 
@@ -67,8 +76,9 @@
                             android:orientation="horizontal" >
 
                             <TextView
+                                android:id="@+id/tv_admin"
                                 style="@style/textview"
-                                android:text="湖北省武汉市光谷中心802"
+                                android:text="13865892252"
                                 android:textColor="@color/deep_grey"
                                 android:textSize="16sp" />
 
@@ -183,23 +193,20 @@
                     android:gravity="center_vertical"
                     android:orientation="horizontal" >
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:src="@drawable/my_shop" />
-
                     <TextView
+                        android:id="@+id/tv_order"
                         style="@style/textview"
                         android:layout_marginLeft="10dp"
-                        android:text="我的店铺"
+                        android:text="我的订单"
                         android:textSize="16sp" />
 
-                    <LinearLayout
+
+                   <LinearLayout
                         style="@style/LyWHFourth"
                         android:gravity="right" >
 
                         <ImageView
+                            android:id="@+id/iv_order"
                             style="@style/imageview"
                             android:src="@drawable/shop_arrow" />
                     </LinearLayout>
@@ -216,18 +223,11 @@
                     android:gravity="center_vertical"
                     android:orientation="horizontal" >
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="5dp"
-                        android:src="@drawable/huiquan_suggest" />
-
                     <TextView
+                        android:id="@+id/tv_adress"
                         style="@style/textview"
                         android:layout_marginLeft="10dp"
-                        android:text="对我们的建议"
+                        android:text="我的地址"
                         android:textSize="16sp" />
 
                     <LinearLayout
@@ -235,6 +235,7 @@
                         android:gravity="right|center_vertical" >
 
                         <ImageView
+                            android:id="@+id/iv_adress"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/shop_arrow" />
@@ -255,52 +256,6 @@
                     android:layout_height="0.5dp"
                     android:background="@color/shallow_gray" />
 
-                <LinearLayout
-                    android:id="@+id/layout_update_pwd"
-                    style="@style/LyWHFourth"
-                    android:layout_height="48dp"
-                    android:background="@color/white"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal" >
-
-                    <ImageView
-                        android:id="@+id/iv_forgetpwd"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="5dp"
-                        android:src="@drawable/update_pwd" />
-
-                    <TextView
-                        style="@style/textview"
-                        android:layout_marginLeft="10dp"
-                        android:text="修改密码"
-                        android:textSize="16sp" />
-
-                    <LinearLayout
-                        style="@style/LyWHFourth"
-                        android:gravity="right" >
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/shop_arrow" />
-                    </LinearLayout>
-                </LinearLayout>
-                <TextView
-                    style="@style/VLine"
-                    android:layout_height="0.5dp"
-                    android:background="@color/shallow_gray" />
-
-                <TextView
-                    style="@style/VLine"
-                    android:layout_height="0.5dp"
-                    android:background="@color/shallow_gray" />
-
-                <TextView
-                    style="@style/VSpaceSmall"
-                    android:background="@color/bgall" />
 
                 <TextView
                     style="@style/VLine"
@@ -315,14 +270,6 @@
                     android:gravity="center_vertical"
                     android:orientation="horizontal" >
 
-                    <ImageView
-                        android:id="@+id/iv_version"
-                        android:layout_width="37dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="5dp"
-                        android:src="@drawable/person_about" />
 
                     <TextView
                         style="@style/textview"
@@ -335,6 +282,7 @@
                         android:gravity="right" >
 
                         <ImageView
+                            android:id="@+id/iv_about"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/shop_arrow" />
@@ -354,14 +302,6 @@
                     android:gravity="center_vertical"
                     android:orientation="horizontal" >
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="5dp"
-                        android:src="@drawable/my_set" />
-
                     <TextView
                         style="@style/textview"
                         android:layout_marginLeft="10dp"
@@ -373,6 +313,7 @@
                         android:gravity="right" >
 
                         <ImageView
+                            android:id="@+id/iv_setting"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/shop_arrow" />

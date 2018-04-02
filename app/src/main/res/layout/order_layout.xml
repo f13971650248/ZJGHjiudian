@@ -22,9 +22,8 @@
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tabs"
-
         android:background="#ff00acf4"
-        app:tabIndicatorColor="@color/white"
+        app:tabIndicatorColor="@color/DodgerBlue"
         app:tabSelectedTextColor="@color/white"
         app:tabTextColor="@color/Gainsboro"
         android:layout_width="match_parent"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F6F6F6"
-    tools:context="com.fc.hft.zjghjiudian.MainActivity"
+    tools:context="com.fc.hft.zjghjiudian.activity.MainActivity"
     android:orientation="vertical">
     <!--使用FrameLayout当做盛放Fragment对象的容器-->
     <FrameLayout
@@ -48,10 +48,6 @@
             style="@style/RadioGroupButtonStyle"
             android:drawableTop="@drawable/main_mine"
             />
-
     </RadioGroup>
-
-
-
 
 </LinearLayout>

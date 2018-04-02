@@ -1,4 +1,4 @@
-package com.fc.hft.zjghjiudian;
+package com.fc.hft.zjghjiudian.activity;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -9,11 +9,10 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-
+import com.fc.hft.zjghjiudian.R;
 import com.fc.hft.zjghjiudian.ui.Home.HomeFragment;
 import com.fc.hft.zjghjiudian.ui.my.MyFragment;
 import com.fc.hft.zjghjiudian.ui.order.OrderFragment;
-
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,9 +1,9 @@
 package com.fc.hft.zjghjiudian.entiy;
 
-import cn.bmob.v3.BmobUser;
 
 
-public class User extends BmobUser {
+
+public class User  {
     private String userName;
     private String passWord;
 

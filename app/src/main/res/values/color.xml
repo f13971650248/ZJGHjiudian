@@ -9,10 +9,16 @@
     <color name="light_grey">#E5E5E5</color>
     <!-- app的背景颜色 -->
     <color name="bgall">#F0EFF5</color>
+    <!-- 天蓝色 -->
+    <color name="light_blue">#17abe3</color>
     <!-- 深灰色 -->
     <color name="deep_grey">#666666</color>
     <!-- 浅灰色的分割线 -->
     <color name="shallow_gray">#E9E9E9</color>
+    <!--通常背景颜色-->
+    <color name="normalBgColor">#F3F3F3</color>
+    <!--我的发布已下架,已流拍-->
+    <color name="publishGray">#BBBBBB</color>
 
     <!--常用颜色-->
     <color name="LightPink">#FFB6C1</color>
@@ -70,6 +76,7 @@
     <color name="DarkSlateGray">#2F4F4F</color>
     <color name="DarkCyan">#008B8B</color>
     <color name="Teal">#008080</color>
+    <color name="Ziti">#8a8a8a</color>
     <color name="MediumTurquoise">#48D1CC</color>
     <color name="LightSeaGreen">#20B2AA</color>
     <color name="Turquoise">#40E0D0</color>

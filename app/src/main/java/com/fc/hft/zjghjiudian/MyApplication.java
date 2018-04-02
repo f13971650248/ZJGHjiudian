@@ -1,22 +1,28 @@
 package com.fc.hft.zjghjiudian;
 
 import android.app.Application;
-import android.content.Context;
+import android.util.Log;
 
-import cn.bmob.v3.Bmob;
+import com.orhanobut.hawk.Hawk;
+
+import cn.jpush.android.api.JPushInterface;
 
 /**
  * Created by Administrator on 2018/3/7/007.
  */
 
 public class MyApplication extends Application {
-    private static Context context;
+    public static String registrationId;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        context = getApplicationContext();
-
-        Bmob.initialize(this,"60ddbb889ba5307f9ab29d155b116148");
+        //极光推送调试模式
+        JPushInterface.setDebugMode(true);
+        //极光推送初始化
+        JPushInterface.init(this);
+        registrationId = JPushInterface.getRegistrationID(this);
+        Log.e("1099", "run:--------->registrationId： "+registrationId );
+        Hawk.init(this).build();
     }
 }
