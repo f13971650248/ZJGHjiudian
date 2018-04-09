@@ -75,61 +75,10 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.login_layout);
         unbinder = ButterKnife.bind(this);
         baseApp = (BaseApplication) getApplication();
-        //initData();
-        //initUp();
         restoreInfo();
-        //initCancle();
-        //initCheckOrder();
-        //initBackOrder();
-        //initOrderDetail();
-        //initCancleOrder();
 
     }
 
-    private void initCancleOrder() {
-        Log.i("TAG", "+++++++++++initCancleOrder");
-        Map<String, String> map = new HashMap<>();
-        map.put("backId", "11");
-        Call<CancleOrderDetail> call = Api.apiService.getCancleOrderDetail("11",
-                SignUtil.getSign(map));
-        call.enqueue(new Callback<CancleOrderDetail>() {
-            @Override
-            public void onResponse(Call<CancleOrderDetail> call, Response<CancleOrderDetail> response) {
-                Log.i("TAG", "success: +++++++CancleOrderDetail");
-                Log.i("TAG", "onResponse: " + response.body());
-            }
-
-            @Override
-            public void onFailure(Call<CancleOrderDetail> call, Throwable t) {
-                Log.i("TAG", "onFailure: " + "请求失败CancleOrderDetail");
-                Log.i("TAG", "onFailure: " + t.getMessage());
-            }
-        });
-    }
-
-    private void initOrderDetail() {
-        Log.i("TAG", "+++++++++++initOrderDetail");
-        Map<String, String> map = new HashMap<>();
-        map.put("orderId", "28");
-        Call<OrderDetail> call = Api.apiService.getOrderDetail("28",
-                SignUtil.getSign(map));
-        call.enqueue(new Callback<OrderDetail>() {
-            @Override
-            public void onResponse(Call<OrderDetail> call, Response<OrderDetail> response) {
-                Log.i("TAG", "success: +++++++OrderDetail");
-                Log.i("TAG", "onResponse: " + response.body());
-
-            }
-
-            @Override
-            public void onFailure(Call<OrderDetail> call, Throwable t) {
-                Log.i("TAG", "onFailure: " + "请求失败OrderDetail");
-                Log.i("TAG", "onFailure: " + t.getMessage());
-
-            }
-        });
-
-    }
 
     private void initBackOrder() {
         Map<String, String> map = new HashMap<>();

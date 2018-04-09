@@ -35,20 +35,7 @@ public class WeiAdapter extends BaseQuickAdapter<Order.DataBean, BaseViewHolder>
         helper.setText(R.id.tv_order_number, format1.format(time) + item.getOrderId() + "");
         helper.setText(R.id.tv_name, item.getAddressName() + "");
         helper.setText(R.id.tv_time, format2.format(time));
-        //处理orderCartList数据
-//
-//        String orderCartList= item.getOrderCartList();
-//        String o=orderCartList.replace("\\", "");
-//        Log.i(TAG, "convert1: "+o);
-//        String a = o.substring(2,3);
-//        Log.i(TAG, "convert2: "+a);
-//        String b=o.substring(6,o.length()-2);
-//        Log.i(TAG, "convert3: "+b);
-//        Gson gson  = new Gson();
-//        OrderCartList orderCartList1=gson.fromJson(b,OrderCartList.class);
-////        Log.i(TAG, "convert: "+orderCartList1.toString());
-//        List<OrderCartList>  orderCartLists  = new ArrayList<>();
-//      //  orderCartLists.add();
+
 
     }
 }

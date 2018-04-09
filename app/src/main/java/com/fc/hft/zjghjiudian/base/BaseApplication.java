@@ -1,10 +1,8 @@
 package com.fc.hft.zjghjiudian.base;
 
 import android.app.Application;
-
 import com.fc.hft.zjghjiudian.entiy.AppUserResult;
 import com.orhanobut.hawk.Hawk;
-
 import cn.jpush.android.api.JPushInterface;
 
 /**
@@ -44,4 +42,5 @@ public class BaseApplication extends Application {
     public void setAppUser(AppUserResult.AppUser appUser) {
         this.appUser = appUser;
     }
+
 }

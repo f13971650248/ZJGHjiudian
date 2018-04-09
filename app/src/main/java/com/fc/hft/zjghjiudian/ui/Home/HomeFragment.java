@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
 import com.fc.hft.zjghjiudian.R;
 import com.fc.hft.zjghjiudian.api.Api;
 import com.fc.hft.zjghjiudian.entiy.Room;
@@ -29,12 +28,10 @@ import com.scwang.smartrefresh.layout.listener.OnLoadmoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.youth.banner.Banner;
 import com.youth.banner.loader.ImageLoader;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -62,7 +59,6 @@ public class HomeFragment extends Fragment {
     private Banner banner;
     private Context context;
 
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -78,11 +74,19 @@ public class HomeFragment extends Fragment {
         initEvent();
     }
 
+   /* @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        if (isVisibleToUser) {
+            initData("1", "1", "10", TYPE_REFRESH);
+        }
+        super.setUserVisibleHint(isVisibleToUser);
+    }*/
+
     private void initView() {
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         reView.setLayoutManager(manager);
-        adapter = new HomeAdapter(getContext(),dataBeanList);
+        adapter = new HomeAdapter(getContext(), dataBeanList);
         reView.setAdapter(adapter);
         //添加Header
         View header = LayoutInflater.from(getContext()).inflate(R.layout.room_bannner_header, reView, false);
@@ -130,8 +134,10 @@ public class HomeFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        initData("1", "1", "5", TYPE_REFRESH);
-        Log.i("TAG", "++++6+++" + Hawk.get("bizid"));
+        if (getUserVisibleHint()) {
+            initData("1", "1", "5", TYPE_REFRESH);
+            Log.i("TAG", "++++6+++" + Hawk.get("bizid"));
+        }
     }
 
     @Override
@@ -139,15 +145,6 @@ public class HomeFragment extends Fragment {
         super.onResume();
         initData("1", "1", "5", TYPE_REFRESH);
     }
-    /*  @Override
-    public void setListAdapter(RecyclerView baseListRv) {
-        LinearLayoutManager manager = new LinearLayoutManager(getContext());
-        manager.setOrientation(LinearLayoutManager.VERTICAL);
-        baseListRv.setLayoutManager(manager);
-        adapter = new HomeAdapter(dataBeanList);
-        baseListRv.setAdapter(adapter);
-
-    }*/
 
     // @Override
     public void initEvent() {
@@ -167,7 +164,6 @@ public class HomeFragment extends Fragment {
             }
         });
     }
-
 
     private void initData(String bizID, String currentPage, String numPerPage, final int type) {
         Map<String, String> map = new HashMap<>();
@@ -206,6 +202,7 @@ public class HomeFragment extends Fragment {
                         ToastUtil.showShort(getContext(), "数据为空");
                     }
                 });
+
     }
 
     @Override

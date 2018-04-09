@@ -2,9 +2,7 @@ package com.fc.hft.zjghjiudian;
 
 import android.app.Application;
 import android.util.Log;
-
 import com.orhanobut.hawk.Hawk;
-
 import cn.jpush.android.api.JPushInterface;
 
 /**

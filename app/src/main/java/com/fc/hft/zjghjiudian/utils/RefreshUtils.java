@@ -2,7 +2,6 @@ package com.fc.hft.zjghjiudian.utils;
 
 import android.view.View;
 import android.widget.RelativeLayout;
-
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 
 /**

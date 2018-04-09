@@ -124,6 +124,13 @@ public class WeiFragment extends BaseListFragment {
         initlist();
         //initDataFormNet("1",mState+"","1","10",TYPE_REFRESH);
     }
+  /*    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        if (isVisibleToUser) {
+            initDataFormNet("1",mState+"","1","10",TYPE_REFRESH);
+        }
+        super.setUserVisibleHint(isVisibleToUser);
+    }*/
 
     private void initDataFormNet(String bizID, String status , String currentPage, String numPager, final int type) {
         //网络请求
