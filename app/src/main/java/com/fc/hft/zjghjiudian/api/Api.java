@@ -1,6 +1,7 @@
 package com.fc.hft.zjghjiudian.api;
 
 import com.fc.hft.zjghjiudian.kit.util.ResutFormatJsonUtils;
+import com.fc.hft.zjghjiudian.retorfit.ApiService;
 import com.orhanobut.logger.Logger;
 
 import java.util.concurrent.TimeUnit;

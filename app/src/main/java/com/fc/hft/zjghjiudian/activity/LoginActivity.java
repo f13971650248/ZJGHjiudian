@@ -80,7 +80,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    private void initBackOrder() {
+  /*  private void initBackOrder() {
         Map<String, String> map = new HashMap<>();
         map.put("bizId", "1");
         map.put("status", "4");
@@ -107,9 +107,9 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-    }
+    }*/
 
-    private void initCheckOrder() {
+    /*private void initCheckOrder() {
         Map<String, String> map = new HashMap<>();
         map.put("orderId", "28");
         map.put("status", "123");
@@ -134,10 +134,10 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
-    }
+    }*/
 
 
-    private void initUp() {
+   /* private void initUp() {
         Map<String, String> map = new HashMap<>();
         map.put("orderId", "28");
         map.put("status", "1");
@@ -163,9 +163,9 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-    }
+    }*/
 
-    private void initData() {
+   /* private void initData() {
         Log.i("TAG", "+++++++++++2222");
         Map<String, String> map = new HashMap<>();
         map.put("bizId", "1");
@@ -192,7 +192,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-    }
+    }*/
 
     private void initLogin(String account, String pass) {
         Log.d("TAG", "1111111111");

@@ -1,20 +1,7 @@
 package com.fc.hft.zjghjiudian.data;
 
-import android.util.Log;
 
-import com.fc.hft.zjghjiudian.api.Api;
 import com.fc.hft.zjghjiudian.entiy.BaseData;
-import com.fc.hft.zjghjiudian.entiy.Cancle;
-import com.fc.hft.zjghjiudian.entiy.Order;
-import com.fc.hft.zjghjiudian.utils.SignUtil;
-import com.google.gson.Gson;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 /**
  * Created by Administrator on 2018/3/17/017.
