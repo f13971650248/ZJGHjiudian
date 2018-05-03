@@ -1,17 +1,22 @@
 package com.fc.hft.zjghjiudian.ui.my;
 
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,15 +26,18 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.bumptech.glide.Glide;
 import com.fc.hft.zjghjiudian.R;
 import com.fc.hft.zjghjiudian.activity.LoginActivity;
 import com.fc.hft.zjghjiudian.api.Api;
 import com.fc.hft.zjghjiudian.utils.UserInfoUtils;
 import com.orhanobut.hawk.Hawk;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -134,20 +142,29 @@ public class MyFragment extends Fragment {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         if (which == 0) {
-                            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                            if (Environment.getExternalStorageState().equals(
-                                    Environment.MEDIA_MOUNTED)) {
-                                tempFile = new File(Environment
-                                        .getExternalStorageDirectory(),
-                                        PHOTO_FILE_NAME);
-                                Uri uri = Uri.fromFile(tempFile);
-                                intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
-                                startActivityForResult(intent,
-                                        PHOTO_REQUEST_CAREMA);
-                            } else {
-                                Toast.makeText(getContext(), "未找到存储卡，无法存储照片！",
-                                        Toast.LENGTH_SHORT).show();
+                            if (Build.VERSION.SDK_INT >= 23) {
+                                int checkCallPhonePermission = ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CAMERA);
+                                if (checkCallPhonePermission != PackageManager.PERMISSION_GRANTED) {
+                                    ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CAMERA}, 222);
+                                    return;
+                                } else {
+                                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                                    if (Environment.getExternalStorageState().equals(
+                                            Environment.MEDIA_MOUNTED)) {
+                                        tempFile = new File(Environment
+                                                .getExternalStorageDirectory(),
+                                                PHOTO_FILE_NAME);
+                                        Uri uri = Uri.fromFile(tempFile);
+                                        intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
+                                        startActivityForResult(intent,
+                                                PHOTO_REQUEST_CAREMA);
+                                    } else {
+                                        Toast.makeText(getContext(), "未找到存储卡，无法存储照片！",
+                                                Toast.LENGTH_SHORT).show();
+                                    }
+                                }
                             }
+
                         } else {
                             Intent intent = new Intent(Intent.ACTION_PICK);
                             intent.setType("image/*");
@@ -227,6 +244,7 @@ public class MyFragment extends Fragment {
             }
         }
     }
+
     private void crop(Uri uri) {
         Intent intent = new Intent("com.android.camera.action.CROP");
         intent.setDataAndType(uri, "image/*");

@@ -1,5 +1,8 @@
 package com.fc.hft.zjghjiudian.base;
 
+import android.app.Dialog;
+import android.content.Context;
+import android.os.Handler;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.fc.hft.zjghjiudian.R;
+import com.fc.hft.zjghjiudian.utils.WeiboDialogUtils;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import java.util.ArrayList;
 
@@ -37,6 +41,8 @@ public abstract class BaseListFragment extends BaseFragment {
     @BindView(R.id.error_normal)
     TextView mErrorNormal;
     private ArrayList<ImageView> mErrorImages;
+    private Handler mHandler = new Handler();
+    Dialog dialog;
 
 
     @Override
@@ -135,6 +141,23 @@ public abstract class BaseListFragment extends BaseFragment {
             }
 
         }
+    }
+    public void showRefreshDialog(Context context, String msg) {
+        if ("".equals(msg)) {
+            dialog = WeiboDialogUtils.createLoadingDialog(context, "加载中...");
+        } else {
+            dialog = WeiboDialogUtils.createLoadingDialog(context, msg);
+        }
+    }
+
+    public void hideRefreshDialog() {
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                WeiboDialogUtils.closeDialog(dialog);
+            }
+        }, 1000);
     }
 
     @Override

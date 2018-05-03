@@ -12,6 +12,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiProvider {
+
+
     private static final String TAG = "Retrofit";
     private static ApiProvider instance;
     private OkHttpClient.Builder builder;

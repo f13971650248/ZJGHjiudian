@@ -1,5 +1,6 @@
 package com.fc.hft.zjghjiudian.ui.order;
 
+import android.content.Context;
 import android.support.annotation.Nullable;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -13,10 +14,15 @@ import java.util.List;
  */
 
 public class WeiAdapter extends BaseQuickAdapter<Order.DataBean, BaseViewHolder> {
+    private Context context;
 
-    public WeiAdapter(@Nullable List<Order.DataBean> data) {
+    public WeiAdapter( Context context,@Nullable List<Order.DataBean> data) {
         super(R.layout.wei_item_layout, data);
+        this.context=context;
     }
+
+
+
 
     @Override
     protected void convert(BaseViewHolder helper, Order.DataBean item) {

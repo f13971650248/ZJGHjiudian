@@ -5,6 +5,9 @@
     <color name="toolbar_subtitle">#D4D0C5</color>
     <color name="toolbar_bg">#B8B5A6</color>
     <color name="error">#ff4545</color>
+    <color name="line_gray">#DDDDDD</color>
+    <color name="mainColor">#f89d1b</color>
+    <color name="whiteColor">#fff</color>
     <!-- 浅灰色 -->
     <color name="light_grey">#E5E5E5</color>
     <!-- app的背景颜色 -->

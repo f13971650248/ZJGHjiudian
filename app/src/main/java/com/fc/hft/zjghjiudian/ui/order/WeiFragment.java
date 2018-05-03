@@ -56,6 +56,8 @@ public class WeiFragment extends BaseListFragment {
     @Override
     public void initView() {
         super.initView();
+        showRefreshDialog(getContext(),"加载中...");
+
     }
 
     @Override
@@ -63,7 +65,7 @@ public class WeiFragment extends BaseListFragment {
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         baseListRv.setLayoutManager(manager);
-        weiAdapter = new WeiAdapter(orderData);
+        weiAdapter = new WeiAdapter(getContext(),orderData);
         baseListRv.setAdapter(weiAdapter);
     }
 
@@ -163,6 +165,7 @@ public class WeiFragment extends BaseListFragment {
                         }else if (type ==1){
                             weiAdapter.addData(orderData);
                         }
+                        hideRefreshDialog();
 
                         // weiAdapter.addData(orderData);
                     }

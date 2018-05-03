@@ -1,7 +1,8 @@
+//noinspection GradleCompatible
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 27
     defaultConfig {
         applicationId "com.fc.hft.zjghjiudian"
         minSdkVersion 19
@@ -28,6 +29,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    buildToolsVersion '27.0.3'
 }
 
 dependencies {
@@ -41,8 +43,8 @@ dependencies {
     //注解
     compile 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-    implementation 'com.android.support:recyclerview-v7:26.1.0'
-    implementation 'com.android.support:design:26.1.0'
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
+    implementation 'com.android.support:design:27.1.1'
     //compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
     //noinspection GradleCompatible
@@ -75,6 +77,4 @@ dependencies {
     //banner
     compile 'com.youth.banner:banner:1.4.9'
     //本地图片上传
-
-
 }

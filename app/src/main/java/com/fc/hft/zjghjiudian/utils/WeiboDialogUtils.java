@@ -51,8 +51,6 @@ public class WeiboDialogUtils {
     /**
      * 关闭dialog
      *
-     * http://blog.csdn.net/qq_21376985
-     *
      * @param mDialogUtils
      */
     public static void closeDialog(Dialog mDialogUtils) {

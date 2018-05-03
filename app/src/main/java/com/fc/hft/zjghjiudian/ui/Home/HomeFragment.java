@@ -1,5 +1,6 @@
 package com.fc.hft.zjghjiudian.ui.Home;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -21,6 +22,7 @@ import com.fc.hft.zjghjiudian.utils.RefreshUtils;
 import com.fc.hft.zjghjiudian.utils.SignUtil;
 import com.fc.hft.zjghjiudian.utils.StatusBarUtil;
 import com.fc.hft.zjghjiudian.utils.ToastUtil;
+import com.fc.hft.zjghjiudian.utils.WeiboDialogUtils;
 import com.orhanobut.hawk.Hawk;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -45,6 +47,7 @@ public class HomeFragment extends Fragment {
 
     private static int TYPE_REFRESH = 0;
     private static int TYPE_LOADMORE = 1;
+    Dialog dialog;
     @BindView(R.id.re_view)
     RecyclerView reView;
     @BindView(R.id.smartRefreshLayout)
@@ -83,6 +86,7 @@ public class HomeFragment extends Fragment {
     }*/
 
     private void initView() {
+       // WeiboDialogUtils.createLoadingDialog(getContext(),"加载中...");
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         reView.setLayoutManager(manager);
@@ -175,6 +179,7 @@ public class HomeFragment extends Fragment {
                 .subscribe(new Consumer<Room>() {
                     @Override
                     public void accept(Room room) throws Exception {
+
                         RefreshUtils.postDelayedRefresh(smartRefreshLayout, 0);
                         RefreshUtils.postDelayedLoadMore(smartRefreshLayout, 0);
                         if (room.getData() == null) {
@@ -187,6 +192,7 @@ public class HomeFragment extends Fragment {
                         linearLayout.setVisibility(View.GONE);
                         //linearLayout.setVisibility(View.VISIBLE);
                         dataBeanList = room.getData();
+
                         if (type == 0) {
                             adapter.getData().clear();
                             adapter.addData(dataBeanList);
@@ -194,6 +200,7 @@ public class HomeFragment extends Fragment {
                         } else if (type == 1) {
                             adapter.addData(dataBeanList);
                         }
+                        //WeiboDialogUtils.closeDialog(dialog);
                     }
                 }, new Consumer<Throwable>() {
                     @Override

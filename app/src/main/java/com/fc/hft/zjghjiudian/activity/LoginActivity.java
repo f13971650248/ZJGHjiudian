@@ -205,7 +205,7 @@ public class LoginActivity extends AppCompatActivity {
                 .login(account, pass, "120c83f7602f4c5fc8b", sign)
                 .compose(RxTransform.<Account>applyIOM())
                 .subscribe(new Consumer<Account>() {
-                    @Override
+                    @Override 
                     public void accept(Account result) throws Exception {
                         Log.d("TAG", "2222222222" + result.getData());
                         Hawk.put("bizid", result.getData().getBizId());
