@@ -10,13 +10,14 @@ import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import com.fc.hft.zjghjiudian.R;
+import com.fc.hft.zjghjiudian.base.BaseActivity;
 import com.fc.hft.zjghjiudian.ui.Home.HomeFragment;
 import com.fc.hft.zjghjiudian.ui.my.MyFragment;
 import com.fc.hft.zjghjiudian.ui.order.OrderFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends BaseActivity implements View.OnClickListener{
     private RadioGroup radioGroup;
     private RadioButton btnHome;
     private RadioButton btnOrder;
@@ -27,14 +28,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private List<Fragment> lists;
     private FrameLayout frameLayout;
 
-    @Override
+   /* @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
+    }*/
+
+    @Override
+    public int getContentViewId() {
+        return R.layout.activity_main;
     }
 
-    private void init() {
+    @Override
+    public void initView() {
         frameLayout = findViewById(R.id.framelayout);
         radioGroup =  findViewById(R.id.radioGroup);
         btnHome =  findViewById(R.id.btn_home);
@@ -62,8 +69,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //初始時向容器中添加第一個fargment對象
         addFragment(homeFragment);
 
-
     }
+
+   /* private void init() {
+
+
+
+    }*/
 
     private void addFragment(Fragment fragment) {
         //获得fragment管理器

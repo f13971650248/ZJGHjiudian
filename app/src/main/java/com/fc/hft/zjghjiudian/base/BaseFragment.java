@@ -103,6 +103,11 @@ public abstract class BaseFragment extends Fragment {
             }
         }, 1000);
     }
+    public void intentActivity(Class<?> c) {
+        Intent intent = new Intent();
+        intent.setClass(getActivity(), c);
+        startActivity(intent);
+    }
 
 
     @Override

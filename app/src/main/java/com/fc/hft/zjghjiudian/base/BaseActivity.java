@@ -12,10 +12,14 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
+import android.view.Window;
 import android.view.WindowManager;
+
+import com.fc.hft.zjghjiudian.activity.ActivityCollector;
 import com.fc.hft.zjghjiudian.utils.UserInfoUtils;
 import com.fc.hft.zjghjiudian.utils.WeiboDialogUtils;
 import com.orhanobut.hawk.Hawk;
+
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
@@ -38,7 +42,11 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        /// getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+        ActivityCollector.addActivity(this);
         setContentView(getContentViewId());
         mBind = ButterKnife.bind(this);
 
@@ -60,18 +68,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
         imei = ((TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE)).getDeviceId();
         device_type = android.os.Build.MODEL;
-        //uid = Hawk.get(UserInfoUtils.uid, "0");
-        //Hawk.put(UserInfoUtils.imei, imei);
-       // Hawk.put(UserInfoUtils.ver, ver);
-//        ImmersionBarUtils.setTransparentStatusBar(this, R.color.bt_login, false);
-
-        //umeng
-        //UMConfigure.setLogEnabled(true);
-        // SDK在统计Fragment时，需要关闭Activity自带的页面统计，
-        // 然后在每个页面中重新集成页面统计的代码(包括调用了 onResume 和 onPause 的Activity)。
-        //MobclickAgent.openActivityDurationTrack(false);
-       // MobclickAgent.setScenarioType(this, MobclickAgent.EScenarioType.E_DUM_NORMAL);
-
 
         initView();
         initEvent();
@@ -86,17 +82,13 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-       // StatService.onResume(this);
-        //MobclickAgent.onPageStart(getClass().getName());
-        //MobclickAgent.onResume(this);
+
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-       // StatService.onPause(this);
-        //MobclickAgent.onPageEnd(getClass().getName());
-       // MobclickAgent.onPause(this);
+
     }
 
     /**
@@ -144,8 +136,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     /**
      * Activity跳转intent
      */
-    public void intentActivity(Context context, Class clazz) {
-        startActivity(new Intent(context, clazz));
+    public void intentActivity(Class<?> c) {
+        Intent intent = new Intent();
+        intent.setClass(this, c);
+        startActivity(intent);
     }
 
     /**
@@ -165,8 +159,10 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (mBind != null) {
             mBind.unbind();
         }
-        if(mDialog!=null){
+        if (mDialog != null) {
             mDialog.dismiss();
         }
+        ActivityCollector.removeActivity(this);
     }
+
 }
